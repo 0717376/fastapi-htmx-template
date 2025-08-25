@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  app:
+    # Название сервиса
+    container_name: test-frameworks
+    
+    # Сборка из текущей директории
+    build:
+      context: .
+      dockerfile: Dockerfile
+    
+    # Проброс портов (если приложение будет использовать порты)
+    # ports:
+    #   - "8000:8000"
+    
+    # Переменные окружения
+    environment:
+      - PYTHONUNBUFFERED=1
+    
+    # Монтирование для разработки (код синхронизируется без пересборки)
+    volumes:
+      - .:/app
+    
+    # Автоматический перезапуск при падении
+    restart: unless-stopped
+    
+    # Переопределение команды для разработки
+    # command: uv run python main.py
