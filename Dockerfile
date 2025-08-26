@@ -23,5 +23,5 @@ COPY . .
 # Устанавливаем сам проект
 RUN uv sync --frozen
 
-# Запускаем приложение через uv
-CMD ["uv", "run", "python", "src/main.py"]
+# Запускаем приложение через uv с uvicorn
+CMD ["uv", "run", "uvicorn", "src.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]

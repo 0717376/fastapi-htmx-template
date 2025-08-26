@@ -1,0 +1,17 @@
+{% extends "base/layout.html" %}
+
+{% block content %}
+<div class="container">
+    <h1>FastAPI + HTMX Стартовая страница</h1>
+    
+    <!-- Простая кнопка с HTMX -->
+    <button hx-get="/api/hello" 
+            hx-target="#result"
+            hx-swap="innerHTML">
+        Загрузить приветствие
+    </button>
+    
+    <!-- Сюда придет ответ от сервера -->
+    <div id="result"></div>
+</div>
+{% endblock %}

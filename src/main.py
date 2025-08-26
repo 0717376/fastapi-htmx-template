@@ -1,6 +1,31 @@
-def main():
-    print("Hello from test-frameworks!")
+from fastapi import FastAPI, Request
+from fastapi.responses import HTMLResponse
+from fastapi.staticfiles import StaticFiles
+from fastapi.templating import Jinja2Templates
+from pathlib import Path
+
+# Создаем FastAPI приложение с названием для документации
+app = FastAPI(title="FastAPI + HTMX Template")
+
+# Получаем путь к текущей папке src/
+BASE_DIR = Path(__file__).resolve().parent
+
+# Подключаем папку static/ - все файлы оттуда доступны по URL /static/...
+app.mount("/static", StaticFiles(directory=BASE_DIR / "static"), name="static")
+
+# Подключаем папку templates/ для HTML шаблонов
+templates = Jinja2Templates(directory=BASE_DIR / "templates")
 
 
-if __name__ == "__main__":
-    main()
+@app.get("/", response_class=HTMLResponse)  # Главная страница возвращает HTML
+async def home(request: Request):
+    # Рендерим шаблон и передаем в него данные
+    return templates.TemplateResponse(
+        "pages/index.html",  # Путь к шаблону
+        {"request": request, "title": "FastAPI + HTMX"}  # Данные для шаблона
+    )
+
+
+@app.get("/api/hello")  # API endpoint возвращает JSON
+async def hello():
+    return {"message": "Hello from FastAPI!"}
