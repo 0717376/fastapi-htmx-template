@@ -26,6 +26,14 @@ async def home(request: Request):
     )
 
 
+@app.get("/components", response_class=HTMLResponse)  # Страница с компонентами
+async def components_showcase(request: Request):
+    return templates.TemplateResponse(
+        "pages/components.html",
+        {"request": request, "title": "DaisyUI Components"}
+    )
+
+
 @app.get("/api/hello")  # API endpoint возвращает JSON
 async def hello():
     return {"message": "Hello from FastAPI!"}
