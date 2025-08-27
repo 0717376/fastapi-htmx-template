@@ -42,6 +42,14 @@ async def preline_components(request: Request):
     )
 
 
+@app.get("/custom", response_class=HTMLResponse)  # Страница с кастомными компонентами
+async def custom_components(request: Request):
+    return templates.TemplateResponse(
+        "pages/custom.html",
+        {"request": request, "title": "Custom UI Components"}
+    )
+
+
 @app.get("/api/hello")  # API endpoint возвращает JSON
 async def hello():
     return {"message": "Hello from FastAPI!"}
