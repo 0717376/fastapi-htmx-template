@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apple Style UI</title>
+    
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    
+    <!-- Apple UI CSS -->
+    <link rel="stylesheet" href="/static/css/apple-ui.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-apple">
+        <div class="nav-content">
+            <a href="/" class="nav-logo">← UI Lab</a>
+            <ul class="nav-links">
+                <li><a href="#overview" class="nav-link">Обзор</a></li>
+                <li><a href="#features" class="nav-link">Компоненты</a></li>
+                <li><a href="#specs" class="nav-link">Спецификации</a></li>
+            </ul>
+            <button class="btn-apple">Попробовать</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-apple fade-in-apple">
+        <div class="container-apple">
+            <div class="badge-apple" style="margin-bottom: 16px;">Новое</div>
+            <h1 class="hero-headline">Apple Design System</h1>
+            <p class="hero-subheadline">Минималистичный дизайн.<br>Максимальная элегантность.</p>
+            <div style="display: flex; gap: 16px; justify-content: center; margin-top: 32px;">
+                <button class="btn-apple btn-apple-large">Начать работу</button>
+                <button class="btn-apple btn-apple-large btn-apple-ghost">Узнать больше</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature Cards -->
+    <section style="padding: 64px 24px; background: #fbfbfd;">
+        <div class="container-apple">
+            <h2 class="headline-medium" style="text-align: center; margin-bottom: 48px;">Продуманный дизайн</h2>
+            
+            <div class="grid-apple">
+                <div class="card-apple fade-in-apple">
+                    <div class="card-apple-content">
+                        <div style="width: 48px; height: 48px; background: linear-gradient(135deg, #5e72e4, #825ee4); border-radius: 12px; margin-bottom: 16px;"></div>
+                        <h3 class="headline-small">Простота</h3>
+                        <p style="color: #86868b; margin-top: 8px;">Чистый интерфейс без лишних элементов. Фокус на контенте и функциональности.</p>
+                        <a href="#" class="btn-apple-text" style="margin-top: 16px;">
+                            Подробнее
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+                                <path d="M6.5 1L11 5.5L6.5 10M11 5.5H1" stroke="currentColor" fill="none" stroke-width="1.5"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="card-apple fade-in-apple" style="animation-delay: 0.1s;">
+                    <div class="card-apple-content">
+                        <div style="width: 48px; height: 48px; background: linear-gradient(135deg, #f093fb, #f5576c); border-radius: 12px; margin-bottom: 16px;"></div>
+                        <h3 class="headline-small">Элегантность</h3>
+                        <p style="color: #86868b; margin-top: 8px;">Утончённые линии, мягкие тени и плавные анимации создают премиальный опыт.</p>
+                        <a href="#" class="btn-apple-text" style="margin-top: 16px;">
+                            Подробнее
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+                                <path d="M6.5 1L11 5.5L6.5 10M11 5.5H1" stroke="currentColor" fill="none" stroke-width="1.5"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="card-apple fade-in-apple" style="animation-delay: 0.2s;">
+                    <div class="card-apple-content">
+                        <div style="width: 48px; height: 48px; background: linear-gradient(135deg, #fa709a, #fee140); border-radius: 12px; margin-bottom: 16px;"></div>
+                        <h3 class="headline-small">Мощность</h3>
+                        <p style="color: #86868b; margin-top: 8px;">Производительные компоненты с поддержкой всех современных возможностей.</p>
+                        <a href="#" class="btn-apple-text" style="margin-top: 16px;">
+                            Подробнее
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+                                <path d="M6.5 1L11 5.5L6.5 10M11 5.5H1" stroke="currentColor" fill="none" stroke-width="1.5"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Components Showcase -->
+    <section style="padding: 64px 24px;">
+        <div class="container-apple">
+            <h2 class="headline-medium" style="text-align: center; margin-bottom: 48px;">Компоненты</h2>
+            
+            <!-- Buttons Section -->
+            <div class="card-apple-bordered" style="padding: 32px; margin-bottom: 24px;">
+                <h3 style="font-size: 21px; font-weight: 600; margin-bottom: 24px;">Кнопки</h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+                    <button class="btn-apple">Основная</button>
+                    <button class="btn-apple btn-apple-ghost">С обводкой</button>
+                    <button class="btn-apple-text">
+                        Текстовая
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+                            <path d="M6.5 1L11 5.5L6.5 10M11 5.5H1" stroke="currentColor" fill="none" stroke-width="1.5"/>
+                        </svg>
+                    </button>
+                    <button class="btn-apple btn-apple-large">Большая кнопка</button>
+                </div>
+            </div>
+
+            <!-- Segment Control -->
+            <div class="card-apple-bordered" style="padding: 32px; margin-bottom: 24px;">
+                <h3 style="font-size: 21px; font-weight: 600; margin-bottom: 24px;">Сегментированный контроль</h3>
+                <div x-data="{ selected: 'day' }">
+                    <div class="segment-control">
+                        <button @click="selected = 'day'" :class="{ 'active': selected === 'day' }" class="segment-button">День</button>
+                        <button @click="selected = 'week'" :class="{ 'active': selected === 'week' }" class="segment-button">Неделя</button>
+                        <button @click="selected = 'month'" :class="{ 'active': selected === 'month' }" class="segment-button">Месяц</button>
+                        <button @click="selected = 'year'" :class="{ 'active': selected === 'year' }" class="segment-button">Год</button>
+                    </div>
+                    <p style="margin-top: 16px; color: #86868b;">Выбрано: <span x-text="selected"></span></p>
+                </div>
+            </div>
+
+            <!-- Form Elements -->
+            <div class="card-apple-bordered" style="padding: 32px; margin-bottom: 24px;">
+                <h3 style="font-size: 21px; font-weight: 600; margin-bottom: 24px;">Элементы формы</h3>
+                
+                <div style="max-width: 400px;">
+                    <div style="margin-bottom: 24px;">
+                        <label class="label-apple">Email</label>
+                        <input type="email" class="input-apple" placeholder="name@example.com">
+                    </div>
+                    
+                    <div style="margin-bottom: 24px;">
+                        <label class="label-apple">Пароль</label>
+                        <input type="password" class="input-apple" placeholder="Введите пароль">
+                    </div>
+                    
+                    <div style="margin-bottom: 24px;">
+                        <label class="label-apple">Настройки уведомлений</label>
+                        <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px 0;">
+                            <span>Push-уведомления</span>
+                            <div x-data="{ on: false }" @click="on = !on" :class="{ 'active': on }" class="switch-apple">
+                                <div class="switch-apple-handle"></div>
+                            </div>
+                        </div>
+                        <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px 0;">
+                            <span>Email-рассылка</span>
+                            <div x-data="{ on: true }" @click="on = !on" :class="{ 'active': on }" class="switch-apple">
+                                <div class="switch-apple-handle"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lists -->
+            <div class="card-apple-bordered" style="padding: 32px; margin-bottom: 24px;">
+                <h3 style="font-size: 21px; font-weight: 600; margin-bottom: 24px;">Списки</h3>
+                
+                <ul class="list-apple">
+                    <li class="list-apple-item">
+                        <div>
+                            <div style="font-weight: 500;">iPhone 15 Pro</div>
+                            <div class="caption">Титан • A17 Pro • 256 ГБ</div>
+                        </div>
+                        <span class="badge-apple">Новинка</span>
+                    </li>
+                    <li class="list-apple-item">
+                        <div>
+                            <div style="font-weight: 500;">MacBook Air</div>
+                            <div class="caption">15" • M2 • 512 ГБ SSD</div>
+                        </div>
+                        <button class="btn-apple">Выбрать</button>
+                    </li>
+                    <li class="list-apple-item">
+                        <div>
+                            <div style="font-weight: 500;">AirPods Pro</div>
+                            <div class="caption">2-е поколение • USB-C</div>
+                        </div>
+                        <span style="font-weight: 500;">29 990 ₽</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Alerts -->
+            <div class="card-apple-bordered" style="padding: 32px; margin-bottom: 24px;">
+                <h3 style="font-size: 21px; font-weight: 600; margin-bottom: 24px;">Уведомления</h3>
+                
+                <div style="display: flex; flex-direction: column; gap: 12px;">
+                    <div class="alert-apple alert-apple-blue">
+                        <svg class="alert-apple-icon" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                        </svg>
+                        <div>
+                            <div style="font-weight: 500;">Информация</div>
+                            <div style="font-size: 14px; margin-top: 4px;">Ваш заказ обрабатывается и будет отправлен в течение 24 часов.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="alert-apple alert-apple-green">
+                        <svg class="alert-apple-icon" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                        </svg>
+                        <div>
+                            <div style="font-weight: 500;">Успешно</div>
+                            <div style="font-size: 14px; margin-top: 4px;">Настройки сохранены.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="alert-apple alert-apple-red">
+                        <svg class="alert-apple-icon" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2L2 22h20L12 2zm1 16h-2v-2h2v2zm0-4h-2v-4h2v4z"/>
+                        </svg>
+                        <div>
+                            <div style="font-weight: 500;">Ошибка</div>
+                            <div style="font-size: 14px; margin-top: 4px;">Проверьте подключение к интернету.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interactive Demo -->
+            <div class="card-apple-gradient" style="padding: 48px; text-align: center;">
+                <h3 class="headline-small" style="color: white; margin-bottom: 16px;">Интерактивная демонстрация</h3>
+                <p style="color: rgba(255,255,255,0.8); margin-bottom: 32px;">Попробуйте компоненты в действии</p>
+                
+                <div x-data="{ count: 0, showModal: false }" style="display: inline-block;">
+                    <div style="display: flex; align-items: center; gap: 16px; background: white; border-radius: 12px; padding: 8px;">
+                        <button @click="count--" class="btn-apple">−</button>
+                        <span style="min-width: 60px; font-size: 24px; font-weight: 600; color: #1d1d1f;" x-text="count">0</span>
+                        <button @click="count++" class="btn-apple">+</button>
+                    </div>
+                    
+                    <button @click="showModal = true" class="btn-apple" style="margin-top: 24px; background: white; color: #667eea;">
+                        Открыть модальное окно
+                    </button>
+                    
+                    <!-- Modal -->
+                    <div x-show="showModal" x-transition style="position: fixed; inset: 0; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; z-index: 10000;" @click.self="showModal = false">
+                        <div class="card-apple" style="max-width: 400px; width: 90%; margin: 20px;">
+                            <div class="card-apple-content">
+                                <h3 class="headline-small">Модальное окно</h3>
+                                <p style="color: #86868b; margin: 16px 0;">Это пример модального окна в стиле Apple. Чистый дизайн с фокусом на содержимом.</p>
+                                <div style="display: flex; gap: 12px; justify-content: flex-end; margin-top: 24px;">
+                                    <button @click="showModal = false" class="btn-apple-text">Отмена</button>
+                                    <button @click="showModal = false" class="btn-apple">Подтвердить</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Grid -->
+    <section style="padding: 64px 24px; background: #fbfbfd;">
+        <div class="container-apple">
+            <h2 class="headline-medium" style="text-align: center; margin-bottom: 48px;">Продукты</h2>
+            
+            <div class="grid-apple">
+                <div class="product-card">
+                    <span class="badge-apple product-card-badge">Pro</span>
+                    <div style="height: 200px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 12px; margin-bottom: 24px;"></div>
+                    <h3 style="font-size: 24px; font-weight: 600; margin-bottom: 8px;">Pro версия</h3>
+                    <p style="color: #86868b; margin-bottom: 16px;">Максимальные возможности для профессионалов</p>
+                    <div style="font-size: 28px; font-weight: 600; margin-bottom: 16px;">99 990 ₽</div>
+                    <button class="btn-apple btn-apple-large" style="width: 100%;">Купить</button>
+                </div>
+                
+                <div class="product-card">
+                    <div style="height: 200px; background: linear-gradient(135deg, #f093fb, #f5576c); border-radius: 12px; margin-bottom: 24px;"></div>
+                    <h3 style="font-size: 24px; font-weight: 600; margin-bottom: 8px;">Стандарт</h3>
+                    <p style="color: #86868b; margin-bottom: 16px;">Всё необходимое для работы</p>
+                    <div style="font-size: 28px; font-weight: 600; margin-bottom: 16px;">59 990 ₽</div>
+                    <button class="btn-apple btn-apple-large btn-apple-ghost" style="width: 100%;">Выбрать</button>
+                </div>
+                
+                <div class="product-card">
+                    <div style="height: 200px; background: linear-gradient(135deg, #fa709a, #fee140); border-radius: 12px; margin-bottom: 24px;"></div>
+                    <h3 style="font-size: 24px; font-weight: 600; margin-bottom: 8px;">Базовый</h3>
+                    <p style="color: #86868b; margin-bottom: 16px;">Идеально для начала</p>
+                    <div style="font-size: 28px; font-weight: 600; margin-bottom: 16px;">29 990 ₽</div>
+                    <button class="btn-apple btn-apple-large btn-apple-ghost" style="width: 100%;">Выбрать</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="padding: 48px 24px; background: #f5f5f7; border-top: 1px solid #d2d2d7;">
+        <div class="container-apple">
+            <p class="caption" style="text-align: center;">
+                Дизайн-система вдохновлена Apple Human Interface Guidelines.<br>
+                Создано с любовью к деталям и минимализму.
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

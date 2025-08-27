@@ -50,6 +50,14 @@ async def custom_components(request: Request):
     )
 
 
+@app.get("/apple", response_class=HTMLResponse)  # Страница в стиле Apple
+async def apple_components(request: Request):
+    return templates.TemplateResponse(
+        "pages/apple.html",
+        {"request": request, "title": "Apple Style UI"}
+    )
+
+
 @app.get("/api/hello")  # API endpoint возвращает JSON
 async def hello():
     return {"message": "Hello from FastAPI!"}
