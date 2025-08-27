@@ -26,10 +26,10 @@ async def home(request: Request):
     )
 
 
-@app.get("/components", response_class=HTMLResponse)  # Страница с компонентами
-async def components_showcase(request: Request):
+@app.get("/daisyui", response_class=HTMLResponse)  # Страница с компонентами DaisyUI
+async def daisyui_components(request: Request):
     return templates.TemplateResponse(
-        "pages/components.html",
+        "pages/daisyui.html",
         {"request": request, "title": "DaisyUI Components"}
     )
 

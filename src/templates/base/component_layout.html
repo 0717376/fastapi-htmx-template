@@ -1,0 +1,32 @@
+{% extends "base/layout.html" %}
+
+{% block content %}
+<div class="min-h-screen bg-base-200">
+    <!-- Навбар -->
+    <div class="navbar bg-base-100 shadow-lg">
+        <div class="navbar-start">
+            <a href="/" class="btn btn-ghost">← UI Lab</a>
+        </div>
+        <div class="navbar-center">
+            <span class="text-xl font-semibold">{% block framework_name %}Framework{% endblock %}</span>
+        </div>
+        <div class="navbar-end"></div>
+    </div>
+
+    <!-- Контейнер -->
+    <div class="container mx-auto p-8">
+        <!-- Заголовок -->
+        <div class="text-center mb-12">
+            <h1 class="text-4xl font-bold mb-4">{% block page_title %}Components{% endblock %}</h1>
+            <p class="text-lg text-base-content/70">{% block page_description %}{% endblock %}</p>
+        </div>
+
+        <!-- Компоненты -->
+        <div class="space-y-8">
+            {% block components %}
+            <!-- Компоненты здесь -->
+            {% endblock %}
+        </div>
+    </div>
+</div>
+{% endblock %}
