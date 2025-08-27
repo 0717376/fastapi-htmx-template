@@ -34,6 +34,14 @@ async def daisyui_components(request: Request):
     )
 
 
+@app.get("/preline", response_class=HTMLResponse)  # Страница с компонентами Preline UI
+async def preline_components(request: Request):
+    return templates.TemplateResponse(
+        "pages/preline.html",
+        {"request": request, "title": "Preline UI Components"}
+    )
+
+
 @app.get("/api/hello")  # API endpoint возвращает JSON
 async def hello():
     return {"message": "Hello from FastAPI!"}
