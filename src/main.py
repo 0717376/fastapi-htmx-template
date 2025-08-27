@@ -26,46 +26,6 @@ async def home(request: Request):
     )
 
 
-@app.get("/daisyui", response_class=HTMLResponse)  # Страница с компонентами DaisyUI
-async def daisyui_components(request: Request):
-    return templates.TemplateResponse(
-        "pages/daisyui.html",
-        {"request": request, "title": "DaisyUI Components"}
-    )
-
-
-@app.get("/preline", response_class=HTMLResponse)  # Страница с компонентами Preline UI
-async def preline_components(request: Request):
-    return templates.TemplateResponse(
-        "pages/preline.html",
-        {"request": request, "title": "Preline UI Components"}
-    )
-
-
-@app.get("/custom", response_class=HTMLResponse)  # Страница с кастомными компонентами
-async def custom_components(request: Request):
-    return templates.TemplateResponse(
-        "pages/custom.html",
-        {"request": request, "title": "Custom UI Components"}
-    )
-
-
-@app.get("/apple", response_class=HTMLResponse)  # Страница в стиле Apple
-async def apple_components(request: Request):
-    return templates.TemplateResponse(
-        "pages/apple.html",
-        {"request": request, "title": "Apple Style UI"}
-    )
-
-
-@app.get("/pines", response_class=HTMLResponse)  # Страница Pines UI
-async def pines_components(request: Request):
-    return templates.TemplateResponse(
-        "pages/pines.html",
-        {"request": request, "title": "Pines UI - RAG Search"}
-    )
-
-
 @app.get("/api/hello")  # API endpoint возвращает JSON
 async def hello():
     return {"message": "Hello from FastAPI!"}
