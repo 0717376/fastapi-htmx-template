@@ -58,6 +58,14 @@ async def apple_components(request: Request):
     )
 
 
+@app.get("/pines", response_class=HTMLResponse)  # Страница Pines UI
+async def pines_components(request: Request):
+    return templates.TemplateResponse(
+        "pages/pines.html",
+        {"request": request, "title": "Pines UI - RAG Search"}
+    )
+
+
 @app.get("/api/hello")  # API endpoint возвращает JSON
 async def hello():
     return {"message": "Hello from FastAPI!"}
