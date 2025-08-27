@@ -5,8 +5,251 @@
 {% block page_description %}Компоненты на базе Tailwind CSS{% endblock %}
 
 {% block components %}
-<!-- Navbar -->
-<div class="navbar bg-base-100 shadow-sm">
-  <a class="btn btn-ghost text-xl">daisyUI</a>
+<!-- LLM RAG Interface -->
+<div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+  
+  <!-- Левая панель - История и документы -->
+  <div class="lg:col-span-1 space-y-4">
+    
+    <!-- История чатов -->
+    <div class="card bg-base-100 shadow-xl">
+      <div class="card-body p-4">
+        <h3 class="card-title text-sm">История чатов</h3>
+        <div class="divider my-2"></div>
+        <ul class="menu menu-xs bg-base-200 rounded-box">
+          <li><a class="active">Новый чат</a></li>
+          <li><a>Анализ документов вчера</a></li>
+          <li><a>Вопросы по API</a></li>
+          <li><a>Исследование данных</a></li>
+        </ul>
+        <button class="btn btn-sm btn-primary mt-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+          </svg>
+          Новый чат
+        </button>
+      </div>
+    </div>
+    
+    <!-- Загруженные документы -->
+    <div class="card bg-base-100 shadow-xl">
+      <div class="card-body p-4">
+        <h3 class="card-title text-sm">Документы</h3>
+        <div class="divider my-2"></div>
+        <div class="space-y-2">
+          <div class="badge badge-outline badge-sm w-full justify-start">
+            📄 report.pdf (2.3 MB)
+          </div>
+          <div class="badge badge-outline badge-sm w-full justify-start">
+            📄 data.csv (156 KB)
+          </div>
+          <div class="badge badge-outline badge-sm w-full justify-start">
+            📄 analysis.txt (45 KB)
+          </div>
+        </div>
+        <button class="btn btn-sm btn-outline mt-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+          </svg>
+          Загрузить
+        </button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Центральная панель - Чат -->
+  <div class="lg:col-span-2">
+    <div class="card bg-base-100 shadow-xl h-full">
+      <div class="card-body p-4 flex flex-col h-full">
+        
+        <!-- Настройки модели -->
+        <div class="flex gap-2 items-center mb-4">
+          <select class="select select-sm select-bordered">
+            <option>GPT-4</option>
+            <option>GPT-3.5</option>
+            <option>Claude</option>
+          </select>
+          <input type="range" min="0" max="100" value="70" class="range range-xs range-primary" />
+          <span class="text-xs">Temperature: 0.7</span>
+        </div>
+        
+        <!-- Область чата -->
+        <div class="flex-1 overflow-y-auto bg-base-200 rounded-lg p-4 mb-4">
+          
+          <!-- Сообщение пользователя -->
+          <div class="chat chat-start">
+            <div class="chat-bubble chat-bubble-primary">
+              Проанализируй загруженные документы и найди информацию о продажах за Q3
+            </div>
+          </div>
+          
+          <!-- Ответ AI -->
+          <div class="chat chat-end">
+            <div class="chat-bubble">
+              Анализирую документы... Найдено 3 релевантных фрагмента:
+              <div class="mt-2 p-2 bg-base-300 rounded text-xs">
+                📍 report.pdf (стр. 12): "Продажи в Q3 выросли на 23%..."
+              </div>
+            </div>
+          </div>
+          
+          <!-- Сообщение пользователя -->
+          <div class="chat chat-start">
+            <div class="chat-bubble chat-bubble-primary">
+              Покажи детальную разбивку по категориям
+            </div>
+          </div>
+          
+          <!-- Ответ AI с таблицей -->
+          <div class="chat chat-end">
+            <div class="chat-bubble">
+              <div class="overflow-x-auto">
+                <table class="table table-xs">
+                  <thead>
+                    <tr>
+                      <th>Категория</th>
+                      <th>Q3 2024</th>
+                      <th>Рост</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Software</td>
+                      <td>$2.3M</td>
+                      <td class="text-success">+15%</td>
+                    </tr>
+                    <tr>
+                      <td>Hardware</td>
+                      <td>$1.8M</td>
+                      <td class="text-success">+28%</td>
+                    </tr>
+                    <tr>
+                      <td>Services</td>
+                      <td>$3.1M</td>
+                      <td class="text-success">+31%</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Поле ввода -->
+        <div class="join w-full">
+          <input type="text" placeholder="Задайте вопрос или введите команду..." class="input input-bordered join-item flex-1" />
+          <button class="btn btn-primary join-item">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+            </svg>
+          </button>
+        </div>
+        
+        <!-- Быстрые действия -->
+        <div class="flex gap-2 mt-2">
+          <button class="btn btn-xs btn-ghost">Суммаризировать</button>
+          <button class="btn btn-xs btn-ghost">Найти цитаты</button>
+          <button class="btn btn-xs btn-ghost">Создать отчет</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Правая панель - Контекст и настройки -->
+  <div class="lg:col-span-1 space-y-4">
+    
+    <!-- Контекст RAG -->
+    <div class="card bg-base-100 shadow-xl">
+      <div class="card-body p-4">
+        <h3 class="card-title text-sm">Контекст поиска</h3>
+        <div class="divider my-2"></div>
+        
+        <!-- Статистика -->
+        <div class="stats stats-vertical shadow">
+          <div class="stat py-2">
+            <div class="stat-title text-xs">Chunks</div>
+            <div class="stat-value text-xl">127</div>
+            <div class="stat-desc text-xs">обработано</div>
+          </div>
+          <div class="stat py-2">
+            <div class="stat-title text-xs">Relevance</div>
+            <div class="stat-value text-xl">0.89</div>
+            <div class="stat-desc text-xs">score</div>
+          </div>
+        </div>
+        
+        <!-- Настройки RAG -->
+        <div class="form-control mt-4">
+          <label class="label">
+            <span class="label-text text-xs">Top K</span>
+          </label>
+          <input type="number" value="5" class="input input-sm input-bordered" />
+        </div>
+        
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text text-xs">Chunk Size</span>
+          </label>
+          <select class="select select-sm select-bordered">
+            <option>512</option>
+            <option selected>1024</option>
+            <option>2048</option>
+          </select>
+        </div>
+        
+        <div class="form-control">
+          <label class="label cursor-pointer">
+            <span class="label-text text-xs">Использовать embeddings</span>
+            <input type="checkbox" checked class="checkbox checkbox-sm checkbox-primary" />
+          </label>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Источники -->
+    <div class="card bg-base-100 shadow-xl">
+      <div class="card-body p-4">
+        <h3 class="card-title text-sm">Источники ответа</h3>
+        <div class="divider my-2"></div>
+        <div class="space-y-2">
+          <div class="alert alert-info py-2">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-4 h-4">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <div class="text-xs">
+              <div class="font-bold">report.pdf</div>
+              <div>Страницы: 12, 15, 23</div>
+            </div>
+          </div>
+          <div class="alert py-2">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-4 h-4">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <div class="text-xs">
+              <div class="font-bold">data.csv</div>
+              <div>Строки: 145-189</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bottom toolbar -->
+<div class="navbar bg-base-200 mt-4 rounded-lg">
+  <div class="navbar-start">
+    <div class="badge badge-ghost">Tokens: 1,234 / 4,096</div>
+  </div>
+  <div class="navbar-center">
+    <div class="join">
+      <button class="btn btn-xs join-item">Экспорт</button>
+      <button class="btn btn-xs join-item">Очистить</button>
+      <button class="btn btn-xs join-item">Настройки</button>
+    </div>
+  </div>
+  <div class="navbar-end">
+    <span class="text-xs text-base-content/60">Последнее обновление: 2 сек назад</span>
+  </div>
 </div>
 {% endblock %}
